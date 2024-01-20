@@ -1,0 +1,62 @@
+function in_one_tick():
+    spawnCar()
+    collectTrafficStates()
+    updateTrafficLights()
+    moveCars()
+    checkTerminationCondition()
+
+
+function checkTerminationCondition():
+    //if all car has reach destination, terminate
+
+function spawnCar():
+    while (carInMap < CAR_POPULATION):
+        for (lane : edgeLanes):
+            switch(lane.inFluxLevel):
+                case (BUSY):
+                    //spawn car at entry point every tick using spawnAtLocation(lane.EntryLocation)
+                case (NORMAL):
+                    //spawn car at entry point every 3-5 tick using spawnAtLocation(lane.EntryLocation)
+                case (SELDOM):
+                //spawn car at entry point every 10 tick using spawnAtLocation(lane.EntryLocation)
+
+function spawnAtLocation(location):
+    if there is car at location:
+        //skip
+    else:
+        //spawn car the location
+        carInMap++;
+    
+
+function collectTrafficStates():
+    for (lane : allLanes):
+        //update Traffic states of the lane from lane.roadSensor
+
+function updateTrafficStates():
+    for (lane : allLanes):
+        //update TrafficLight based on traffic state of the lane and the student's configuration
+
+function moveCars():
+    for (car: allCars):
+        if car at entry of car.currentLane:
+            car.nextLane = car.getNextLane();
+        if car near exit of car.currentLane:
+            if trafficLight.staus is not GREEN:
+                car.driveToExit()
+        else:
+            car.driveAlong()
+        if car reach car.Destination:
+            //remove car from map
+            carInMap--;
+
+function driveAlong():
+    //translate car.currentLocation by vector distance along car.currentLane
+function driveToExit():
+    //update car.currentLocation = currentLane.exitLocation
+
+function getNextLane():
+    //return the next lane base on optimum-route-planning
+
+
+            
+
